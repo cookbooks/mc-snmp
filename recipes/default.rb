@@ -7,7 +7,12 @@
 # All rights reserved - Do Not Redistribute
 #
 
-package 'snmp' do
+case node['platform']
+when 'smartos'
+  pkg = 'net-snmp'
+end
+
+package pkg do
   action :install
 end
 
